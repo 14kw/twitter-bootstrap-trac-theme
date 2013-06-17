@@ -1,0 +1,353 @@
+/*** base ***/
+
+body {
+    font-size: 13px;
+    line-height: 1.4em;
+}
+
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h1, h2, h3, h4 { line-height: 1.6em; }
+
+fieldset {
+    padding: 1em;
+}
+
+label, input, button, select, textarea {
+    font-size: 13px;
+}
+input, select, textarea, .uneditable-input {
+    width: 180px;
+}
+
+textarea {
+  font-family: monospace;
+}
+
+form {
+    margin: 0 0 10px;
+}
+
+form label,
+form input {
+    display: inline-block;
+}
+
+legend {
+  border: none;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.4em;
+  margin-bottom: 0;
+}
+
+/*** header ***/
+
+#prefs div, #prefs label, #prefs input, #prefs select {
+  font-size: 11px;
+}
+
+#prefs input[type="text"] {
+    width: 100px;
+}
+
+#banner img {
+  max-height:40px;
+}
+
+
+/*** sidebar ***/
+
+.sidebar-nav {
+    font-size: 12px;
+    padding: 9px 5px;
+}
+
+/*** navbar ***/
+
+#login {
+    margin: 10px 0 0 10px;
+}
+
+#search {
+    clear: none;
+    margin: 1em 0 0 1em;
+}
+
+#search input {
+    font-size: 14px;
+}
+
+.nav li {
+    border-right: 0;
+    display: list-item;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.navbar .nav {
+    background-color:#393939;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.navbar .nav > li > a {
+    color: #C5C5C5;
+    font-size: 12px;
+    padding: 6px 11px;
+}
+
+.navbar .btn, .navbar .btn-group {
+    margin-top: 1em;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position:static;
+}
+
+.navbar-inverse .navbar-inner {
+    background-color: #FFF;
+    background-image: url("/trac_common/headcover.png");
+}
+
+.container-fluid {
+    padding-top: 12px;
+    padding-bottom: 10px;
+}
+
+/*** btn ***/
+.btn {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+/*** button group ***/
+.btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover, ul.breadcrumb li {
+    font-size: 12px;
+}
+
+/*** other ***/
+
+table.progress td {
+    background: #FEFFC7;
+}
+
+:link,
+:visited {
+    text-decoration: none;
+    border-bottom: 0px;
+}
+
+#content {
+    position: inherit;
+}
+
+#edit #text {
+    min-height: 40em;
+}
+
+#topsearch label {
+    display: inherit;
+}
+
+ul.breadcrumb {
+  float: left;
+}
+
+#ticket table.properties td, #ticket table.properties th {
+    font-size: 90%;
+}
+
+#action {
+  line-height: 160%;
+  padding: 0.5em;
+}
+
+#tabs {
+  border: 1px solid #E3E3E3;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+#prefs {
+  border: 1px solid #E3E3E3;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+form.mod .field {
+  margin: 0.5em;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 0 4px;
+}
+
+/*** wiki ***/
+
+div.trac-content {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+
+.wikipage h2 {
+    box-shadow: none;
+}
+
+.wikipage h3 {
+    padding-left: 0.5em;
+}
+
+table.wiki {
+    box-shadow: none;
+}
+
+pre.wiki, pre.literal-block {
+    box-shadow: none;
+    margin: 1em 0.75em;
+    padding: 0.35em 0.6em;
+}
+
+blockquote p {
+    font-size: 14px;
+    line-height: 20px;
+}
+blockquote.citation {
+    margin: 0;
+}
+
+.breadcrumb {
+    margin: 0 0 10px;
+    padding: 6px 10px;
+}
+
+#notice.system-message, .notice.system-message {
+    border: 1px solid #E3E3E3;
+}
+
+div.system-message {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+#content.error .message, div.system-message {
+    margin: 0 0 1em;
+}
+
+/*** roadmap ***/
+
+.trac-progress .legend {
+    font-size: 11px;
+}
+
+/*** repository ***/
+
+#jumprev input, #diffrev input {
+	width: 60px;
+}
+
+/*** report ***/
+
+#content.report .field {
+    width: 600px;
+}
+textarea#description, textarea#query {
+    width: 600px;
+}
+.report h3 {
+    font-size:14px;
+}
+
+#properties div.trac-resizable, #field-description {
+    width: 98%;
+}
+
+/*** ticket ***/
+
+#field-summary {
+    width: 500px;
+}
+#field-description-help, #properties div.editor-toggle label {
+    font-size:11px;
+}
+#content.ticket .trac-topnav {
+    margin-bottom: 22px;
+}
+
+/*** search ***/
+
+#fullsearch input[type="text"] {
+    margin-bottom: 0;
+}
+
+#content.search #results dd {
+    font-size: 85%;
+}
+
+/*** ganttcalender ***/
+
+/* calender */
+form fieldset.collapsed {
+    padding: 0;
+}
+
+fieldset#options {
+    margin-bottom: 1em;
+}
+
+.foldable *:link, .foldable *:visited {
+    box-shadow: none;
+}
+
+/* gantt */
+
+#query fieldset.collapsed {
+    padding: 0;
+}
+
+fieldset#filters table, fieldset#options table {
+    margin: .5em;
+}
+
+fieldset#filters td label {
+    font-size: 12px;
+}
+
+#filters table {
+    width: 96%;
+}
+
+#query fieldset {
+    margin-bottom: 1em;
+}
+#query fieldset.collapsed {
+    margin-bottom: 1em;
+}
+#query fieldset, #query fieldset input, #query fieldset select {
+    font-size: 14px;
+}
+
+.bdy_elem {
+    font-size: 11px;
+}
+
+/*** talk ***/
+#talk_open_rooms h1 {
+    margin: 5px 0;
+}
+#talk-front .talk_featured_item, #talk-front .talk_open_item {
+	margin: 0 1em 1em 0;
+}
+#talk-roomlist {
+	padding: 1em 0;
+}
+
+/*** admin ***/
+
+#addcomponent input[type="text"], #addmilestone input[type="text"], #addenum input[type="text"], #addversion input[type="text"] {
+    margin-bottom: 0;
+}
+
+#enumlist select {
+    width: 48px;
+}

@@ -1,0 +1,126 @@
+<?python
+from genshi.builder import tag
+from genshi.core import QName
+
+first_metanav = chrome['nav']['metanav'][0]['label']
+if hasattr(first_metanav, 'children'):
+  user_menu_text = first_metanav.children
+else:
+  user_menu_text = first_metanav
+
+new_ctxtnav = []
+for element in chrome['ctxtnav']:
+  if hasattr(element, 'attrib'):
+    element.attrib = element.attrib | [(QName('class'), 'btn')]
+  else:
+    element = tag.a(element,  class_='btn disabled')
+  new_ctxtnav.append(element)
+chrome['ctxtnav'] = new_ctxtnav
+
+?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      py:strip="">
+
+  <!--! Add site-specific style sheet -->
+  <head py:match="head" py:attrs="select('@*')">
+    ${select('*|comment()|text()')}
+    <link rel="stylesheet" type="text/css"
+          href="/trac_common/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/trac_common/css/patch.css" />
+  </head>
+
+  <py:match path="body" once="true" buffer="false">
+    <body>
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner" >
+        <div class="container-fluid" py:choose="">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+            <a py:when="chrome.logo.src" id="logo" href="${chrome.logo.link or href.wiki('TracIni')+'#header_logo-section'}"><img
+               src="${chrome.logo.src}" alt="${chrome.logo.alt}"
+               height="${chrome.logo.height or None}" width="${chrome.logo.width or None}" /></a>
+            <h1 py:otherwise=""><a class="brand" href="${chrome.logo.link}">${project.name}</a></h1>
+            <div id="login" class="btn-group pull-right">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="icon-user"></i> ${user_menu_text}
+                <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu" py:if="chrome.nav['metanav']">
+                <li py:for="idx, item in  enumerate(chrome.nav['metanav'])"
+                    class="${classes(first_last(idx, chrome.nav['metanav']), active=item.active)}">${item.label}</li>
+              </ul>
+            </div>
+            <form id="search" class="navbar-search pull-right" action="${href.search()}" method="get">
+              <py:if test="not defined('trac_error_rendering') and 'SEARCH_VIEW' in perm">
+                <input type="text" class="search-query span2" placeholder="Quick search" id="proj-search" name="q" size="18" accesskey="f" value=""/>
+              </py:if>
+            </form>
+        </div>
+        <div id="navigation" class="nav-collapse">
+            <ul class="nav" py:if="chrome.nav['mainnav']">
+              <li py:for="idx, item in enumerate(chrome.nav['mainnav'])"
+                  class="${classes(first_last(idx, chrome.nav['mainnav']), active=item.active)}">${item.label}</li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /navbar-inner -->
+    </div>
+
+    <div id="main" class="container-fluid">
+      <div class="row-fluid">
+        <div id="warning" py:if="chrome.warnings" class="system-message">
+          <py:choose test="len(chrome.warnings)">
+            <strong>Warning:</strong>
+            <py:when test="1">${chrome.warnings[0]}</py:when>
+            <py:otherwise><ul><li py:for="warning in chrome.warnings">$warning</li></ul></py:otherwise>
+          </py:choose>
+        </div>
+        <div id="notice" py:if="chrome.notices" class="system-message">
+          <py:choose test="len(chrome.notices)">
+            <py:when test="1">${chrome.notices[0]}</py:when>
+            <py:otherwise><ul><li py:for="notice in chrome.notices">$notice</li></ul></py:otherwise>
+          </py:choose>
+        </div>
+
+        <div>
+
+          <xi:include py:if="value_of('resourcepath_template')" href="${resourcepath_template}" />
+
+          <div id="ctxtnav" class="btn-group pull-right" py:if="chrome.ctxtnav">
+                  <a py:if="req.environ['PATH_INFO'].startswith('/wiki')" class="btn" href="${req.href(req.path_info)}?action=edit">編集</a>
+                <py:for each="i, elm in enumerate(chrome.ctxtnav)" class="btn">$elm</py:for>
+          </div>
+
+          ${select('*|comment()|text()')}
+        </div>
+
+      </div>
+    </div>
+
+    <div id="footer" xml:lang="en"><hr/>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img
+        src="${chrome.htdocs_location}trac_logo_mini.png" height="30"
+        width="107" alt="Trac Powered" class="pull-left" /></a>
+      <p class="pull-left" i18n:msg="version">
+        Powered by <a href="${href.about()}"><strong>Trac ${trac.version}</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="pull-right">${chrome.footer}</p>
+    </div>
+
+    <!-- Put script at the end for faster loading. -->
+    <script src="/trac_common/js/bootstrap.min.js"></script>
+
+  </body>
+  </py:match>
+</html>
