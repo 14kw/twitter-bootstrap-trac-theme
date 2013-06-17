@@ -8,7 +8,7 @@ Twitter Bootstrapを利用したTracのテーマです。
 -----
 
 * Trac1.0.1
-* Twitter Bootstrap Version2.3.2
+* Twitter Bootstrap Version2.3.1
 
 使い方
 -----
