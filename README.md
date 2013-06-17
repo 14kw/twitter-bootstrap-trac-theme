@@ -43,7 +43,13 @@ Trac本体にもclassを付けたかったので手を入れています。
     # vi $APACHE_ROOT/conf/httpd.conf
     Alias /trac_common /usr/share/trac/htdocs
 
- 
+スクリーンショットとサンプルTrac
+-----
+
+* http://14code.com/blog/wp-content/uploads/2013/06/trac-bootstrap-theme_screenshot.png
+* http://14code.com/trac/test01
+
+
 日本語化について
 -----
 レポートの日本語化については、[インタアクト株式会社](http://www.i-act.co.jp/project/products/products.html "インタアクト株式会社")が公開している、Trac-1.0.ja1を流用させてもらいました。  
