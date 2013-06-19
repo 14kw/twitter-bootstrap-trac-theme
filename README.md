@@ -1,4 +1,4 @@
-Trac Bootstrap Theme
+Twitter Bootstrap Trac Theme
 ======================
 Twitter Bootstrapを利用したTracのテーマです。  
 似たようなテーマはいくつかありましたが、バージョンが合わなかったり、  
@@ -16,17 +16,17 @@ patchファイルを作るのがめんどくさかったので、基本的に上
 Trac本体にもclassを付けたかったので手を入れています。
  
 ### Tracのソースを上書きしてインストール ###
-    # git clone https://github.com/14kw/trac-bootstrap-theme.git
+    # git clone https://github.com/14kw/twitter-bootstrap-trac-theme.git
     # wget http://download.edgewall.org/trac/Trac-1.0.1.tar.gz
     # tar xvfz Trac-1.0.1.tar.gz
     # cd Trac-1.0.1
-    # cp ../trac-bootstrap-theme/trac_src/Trac-1.0.1/trac/* ./trac/
+    # cp ../twitter-bootstrap-trac-theme/trac_src/Trac-1.0.1/trac/* ./trac/
     # easy_install babel
     # python setup.py install
 
 
 ### Tracの共通ファイルをコピー ###
-    # cp ./trac-bootstrap-theme/trac_common /usr/share/trac
+    # cp ./twitter-bootstrap-trac-theme/trac_common /usr/share/trac
     # vi $TRAC_ROOT/conf/trac.ini
     [header_logo]
     src = /trac_common/trac_banner.png
@@ -46,7 +46,7 @@ Trac本体にもclassを付けたかったので手を入れています。
 スクリーンショットとサンプルTrac
 -----
 
-* http://14code.com/blog/wp-content/uploads/2013/06/trac-bootstrap-theme_screenshot.png
+* http://14code.com/blog/wp-content/uploads/2013/06/twitter-bootstrap-trac-theme_screenshot.png
 * http://14code.com/trac/test01
 
 
