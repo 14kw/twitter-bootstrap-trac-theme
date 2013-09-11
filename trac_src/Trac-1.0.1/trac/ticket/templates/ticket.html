@@ -19,12 +19,12 @@
         $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
         $(".foldable").enableFolding(false, true);
       <py:when test="ticket.exists">/*<![CDATA[*/
-        $("#attachments").toggleClass("collapsed");
+        $("#attachments").toggleClass("");
         $("#trac-up-attachments").click(function () {
           $("#attachments").removeClass("collapsed");
           return true;
         });
-        $("#modify").parent().toggleClass("collapsed");
+        $("#modify").parent().toggleClass("");
         $(".trac-topnav a").click(function() { $("#modify").parent().removeClass("collapsed"); });
 
         /* only enable control elements for the currently selected action */
@@ -90,7 +90,7 @@
           setRevertHandler();
           // Collapse property form if comment editor has focus
           if (show_preview && comment_focused)
-            $("#modify").parent().addClass("collapsed");
+            $("#modify").parent().addClass("");
         }, "#ticketchange .trac-loading");
         $("#trac-comment-editor").autoSubmit({preview_comment: '1'}, function(data, reply) {
           var comment = $("#trac-comment-editor").next("div.comment").html(reply);
@@ -199,10 +199,17 @@
                 <a tabindex="42" href="${href.wiki('WikiFormatting')}">WikiFormatting</a>
                 here.
               </label>
-              <textarea id="comment" name="comment" class="wikitext trac-resizable" rows="10" cols="78">
+              <textarea id="comment" name="comment" class="wikitext trac-resizable" rows="8" cols="78">
 ${comment}</textarea>
             </fieldset>
           </div>
+        </div>
+
+        <!--! Preview of ticket changes -->
+        <div py:if="ticket.exists and can_append" id="ticketchange" class="ticketdraft"
+             style="${'display: none' if not (change_preview.fields or change_preview.comment)
+                                         or cnum_edit is not None else None}">
+          <xi:include href="ticket_change.html" py:with="change = change_preview; preview = True"/>
         </div>
 
         <div>
@@ -241,7 +248,7 @@ ${comment}</textarea>
                           <a tabindex="42" href="${href.wiki('WikiFormatting')}">WikiFormatting</a> here.
                         </label>
                         <textarea id="field-description" name="field_description"
-                                  class="wikitext trac-resizable" rows="10" cols="68">
+                                  class="wikitext trac-resizable" rows="8" cols="68">
 ${ticket.description}</textarea>
                       </fieldset>
                     </td>
@@ -335,13 +342,6 @@ ${value}</textarea>
               </py:choose>
             </py:if>
           </div>
-        </div>
-
-        <!--! Preview of ticket changes -->
-        <div py:if="ticket.exists and can_append" id="ticketchange" class="ticketdraft"
-             style="${'display: none' if not (change_preview.fields or change_preview.comment)
-                                         or cnum_edit is not None else None}">
-          <xi:include href="ticket_change.html" py:with="change = change_preview; preview = True"/>
         </div>
 
         <!--! Author or Reporter -->
