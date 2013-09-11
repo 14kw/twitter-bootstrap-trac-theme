@@ -1,0 +1,57 @@
+/* -----------------------------------------
+ *  common
+ * -----------------------------------------
+ */
+#header {
+    display: none;
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* -----------------------------------------
+ *  wiki
+ * -----------------------------------------
+ */
+div.trac-content {
+    border: none;
+    box-shadow: none;
+}
+.anchor {
+    display: none;
+}
+ul.breadcrumb.noprint {
+    padding-left: 0;
+}
+ul.breadcrumb.noprint li {
+    display: inline;
+    list-style: none outside none;
+}
+#ctxtnav {
+    display: none;
+}
+
+.wikipage {
+    padding-left: 2px;
+}
+.wikipage h1 {
+    border-bottom: none;
+    border-left: 15px solid #666;
+}
+.wikipage h2 {
+    border-bottom: 1px solid #666;
+}
+pre.wiki, pre.literal-block {
+    border: 1px solid #BBB;
+}
+blockquote {
+    border-bottom: none;
+    border-right: none:
+    border-top: none;
+    border-left: 5px solid #BBB;
+}
+#changelog .change {
+    padding-bottom: 4px;
+}
+

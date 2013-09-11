@@ -1,4 +1,7 @@
-/*** base ***/
+/* -----------------------------------------
+ *  base 
+ * -----------------------------------------
+ */
 
 body {
     font-size: 13px;
@@ -9,14 +12,18 @@ h1 { font-size: 20px; }
 h2 { font-size: 18px; }
 h3 { font-size: 16px; }
 h4 { font-size: 14px; }
-h1, h2, h3, h4 { line-height: 1.6em; }
+h1 { line-height: 1.6em; }
+h2, h3, h4 { line-height: 1.2em; }
 
 fieldset {
-    padding: 1em;
+    padding: .6em;
+    border: 1px solid #D7D7D7;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
 }
 
 label, input, button, select, textarea {
-    font-size: 13px;
+    font-size: 12px;
 }
 input, select, textarea, .uneditable-input {
     width: 180px;
@@ -43,7 +50,18 @@ legend {
   margin-bottom: 0;
 }
 
-/*** header ***/
+select, input[type="file"] {
+    height: 26px;
+    line-height: 26px;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    margin-bottom: 6px;
+}
+
+/* -----------------------------------------
+ *  header
+ * -----------------------------------------
+ */
 
 #prefs div, #prefs label, #prefs input, #prefs select {
   font-size: 11px;
@@ -57,15 +75,20 @@ legend {
   max-height:40px;
 }
 
-
-/*** sidebar ***/
+/* -----------------------------------------
+ *  sidebar
+ * -----------------------------------------
+ */
 
 .sidebar-nav {
     font-size: 12px;
     padding: 9px 5px;
 }
 
-/*** navbar ***/
+/* -----------------------------------------
+ *  navber
+ * -----------------------------------------
+ */
 
 #login {
     margin: 10px 0 0 10px;
@@ -110,6 +133,7 @@ legend {
 .navbar-inverse .navbar-inner {
     background-color: #FFF;
     background-image: url("/trac_common/headcover.png");
+    filter:none;
 }
 
 .container-fluid {
@@ -117,19 +141,27 @@ legend {
     padding-bottom: 10px;
 }
 
-/*** btn ***/
+/* -----------------------------------------
+ *  btn
+ * -----------------------------------------
+ */
 .btn {
     font-size: 13px;
     line-height: 20px;
 }
 
-/*** button group ***/
+/* -----------------------------------------
+ *  button group
+ * -----------------------------------------
+ */
 .btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover, ul.breadcrumb li {
     font-size: 12px;
 }
 
-/*** other ***/
-
+/* -----------------------------------------
+ *  other
+ * -----------------------------------------
+ */
 table.progress td {
     background: #FEFFC7;
 }
@@ -173,7 +205,7 @@ ul.breadcrumb {
 
 #prefs {
   border: 1px solid #E3E3E3;
-  border-radius: 6px 6px 6px 6px;
+  border-radius: 3px 3px 3px 3px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
 }
 
@@ -185,18 +217,34 @@ input[type="radio"], input[type="checkbox"] {
     margin: 0 4px;
 }
 
-/*** wiki ***/
-
+/* -----------------------------------------
+ *  wiki
+ * -----------------------------------------
+ */
 div.trac-content {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
 }
 
+.wikipage h1 {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border-bottom: 1px solid #D7D7D7;
+    border-radius: 0.1em 0.1em 0.1em 0.1em;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    padding: 0.4em 0.4em 0.1em;
+}
+
 .wikipage h2 {
     box-shadow: none;
+    margin-top: 1.3em;
+    margin-bottom: 0.7em;
 }
 
 .wikipage h3 {
+    border: none;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
     padding-left: 0.5em;
+    text-decoration: underline;
 }
 
 table.wiki {
@@ -234,25 +282,46 @@ div.system-message {
     margin: 0 0 1em;
 }
 
-/*** roadmap ***/
+#editrows {
+    width:50px;
+}
 
+#addcomment {
+    width: 100%;
+}
+
+/* -----------------------------------------
+ *  roadmap
+ * -----------------------------------------
+ */
 .trac-progress .legend {
     font-size: 11px;
 }
 
-/*** repository ***/
-
+/* -----------------------------------------
+ *  repository
+ * -----------------------------------------
+ */
+h1 *:link, h1 *:visited {
+    color: #0088CC;
+}
 #jumprev input, #diffrev input {
 	width: 60px;
 }
 
-/*** report ***/
-
+/* -----------------------------------------
+ *  report
+ * -----------------------------------------
+ */
 #content.report .field {
     width: 600px;
 }
 textarea#description, textarea#query {
     width: 600px;
+}
+.report div.reports h2 {
+    background-color: #F7F7F7;
+	box-shadow: none;
 }
 .report h3 {
     font-size:14px;
@@ -261,9 +330,44 @@ textarea#description, textarea#query {
 #properties div.trac-resizable, #field-description {
     width: 98%;
 }
+h2.report-result {
+    box-shadow:none;
+}
 
-/*** ticket ***/
+#batchmod_value_comment {
+    width: 100%;
+}
+#batchmod_fieldset label {
+    margin-right: 6px;
+    width: 100px;
+}
+.batchmod_property label {
+    text-align: right;
+}
 
+/* -----------------------------------------
+ *  ticket
+ * -----------------------------------------
+ */
+#modify #properties label, #modify #properties input, #modify #properties select, #modify #properties textarea {
+    font-size: 12px;
+}
+#action_reassign_reassign_owner, #action_resolve_resolve_resolution {
+    font-size: 12px;
+}
+#modify #properties input[type="text"], #modify #properties select, #action_reassign_reassign_owner, #action_resolve_resolve_resolution {
+    margin-bottom: 3px;
+    padding: 1px 3px;
+}
+#modify #properties input[type="text"], #action_reassign_reassign_owner {
+    height: 21px;
+}
+#modify #properties select, #action_resolve_resolve_resolution {
+    height: 24px;
+}
+#modify #properties table th {
+    padding: 0.23em;
+}
 #field-summary {
     width: 500px;
 }
@@ -272,10 +376,16 @@ textarea#description, textarea#query {
 }
 #content.ticket .trac-topnav {
     margin-bottom: 22px;
+    text-align: left;
+}
+#changelog h3, #ticketchange h3 {
+	box-shadow: none;
 }
 
-/*** search ***/
-
+/* -----------------------------------------
+ *  search
+ * -----------------------------------------
+ */
 #fullsearch input[type="text"] {
     margin-bottom: 0;
 }
@@ -284,9 +394,15 @@ textarea#description, textarea#query {
     font-size: 85%;
 }
 
-/*** ganttcalender ***/
+/* -----------------------------------------
+ *  ganttcalender
+ * -----------------------------------------
+ */
 
-/* calender */
+/* -----------------------------------------
+ *  calender
+ * -----------------------------------------
+ */
 form fieldset.collapsed {
     padding: 0;
 }
@@ -299,8 +415,10 @@ fieldset#options {
     box-shadow: none;
 }
 
-/* gantt */
-
+/* -----------------------------------------
+ *  gantt
+ * -----------------------------------------
+ */
 #query fieldset.collapsed {
     padding: 0;
 }
@@ -323,15 +441,14 @@ fieldset#filters td label {
 #query fieldset.collapsed {
     margin-bottom: 1em;
 }
-#query fieldset, #query fieldset input, #query fieldset select {
-    font-size: 14px;
-}
-
 .bdy_elem {
     font-size: 11px;
 }
 
-/*** talk ***/
+/* -----------------------------------------
+ *  talk
+ * -----------------------------------------
+ */
 #talk_open_rooms h1 {
     margin: 5px 0;
 }
@@ -341,13 +458,35 @@ fieldset#filters td label {
 #talk-roomlist {
 	padding: 1em 0;
 }
+#talk-sidebar {
+    width: 20%;
+}
+#talk-main {
+    width: 74%;
+}
+#talk-msg {
+    width: 97%;
+}
+#talk-room td {
+    word-break: break-all;
+}
 
-/*** admin ***/
-
+/* -----------------------------------------
+ *  admin
+ * -----------------------------------------
+ */
 #addcomponent input[type="text"], #addmilestone input[type="text"], #addenum input[type="text"], #addversion input[type="text"] {
     margin-bottom: 0;
 }
-
 #enumlist select {
     width: 48px;
+}
+#modbasic .trac-resizable {
+    width: 100%;
+}
+#bloginfotext {
+    width: 98%;
+}
+#tagchange .trac-resizable {
+    width: 100%;
 }
